@@ -1,5 +1,7 @@
 package com.deliburd.extrataskschedulers;
 
+import java.util.concurrent.ExecutorService;
+
 /**
  * An interface that specifies an {@link java.util.concurrent.ExecutorService ExecutorService} that can shut down
  * automatically when the JVM terminates gracefully. It contains methods to view the auto-shutdown status and
@@ -7,7 +9,7 @@ package com.deliburd.extrataskschedulers;
  * 
  * @author DELIBURD
  */
-public interface AutoShutdownExecutorService {
+public interface AutoShutdownExecutorService extends ExecutorService {
 
 	/**
 	 * Makes this executor shut down automatically when the JVM is exiting gracefully.
@@ -32,7 +34,7 @@ public interface AutoShutdownExecutorService {
 	 *
 	 * @return Whether this executor will shut down automatically when the JVM exits gracefully.
 	 * 
-	 * @see    #addShutdownOnExit(regularShutdown)
+	 * @see    #addShutdownOnExit(boolean)
 	 * @see    #removeShutdownOnExit()
 	 */
 	boolean willShutdownOnExit();
