@@ -23,6 +23,8 @@ public interface CallbackExecutorService extends ExecutorService {
 	/**
 	 * Gets the callback failure handler which runs when a callback fails for the submission methods' returned futures
 	 * due to an exception.
+	 * 
+	 * @return The callback failure handler.
 	 */
 	public Consumer<? super Throwable> getCallbackFailureHandler();
 
