@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.SynchronousQueue;
@@ -376,11 +377,10 @@ public class StealingCallbackExecutor extends ThreadPoolExecutor implements Stea
 	public Consumer<? super Throwable> getCallbackFailureHandler() {
 		return callbackFailureHandler;
 	}
-	
+
 	@Override
 	public String toString() {
-		return super.toString() + "[Active stolen work executor threads = " + 
-				stolenWorkExecutorThreadCount + ", completed stolen tasks = " +
-				completedStolenTaskCount + "]";
+		return super.toString() + "[Active stolen work executor threads = " + stolenWorkExecutorThreadCount +
+				", completed stolen tasks = " + completedStolenTaskCount + "]";
 	}
 }
